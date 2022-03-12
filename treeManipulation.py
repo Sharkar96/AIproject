@@ -26,10 +26,16 @@ def moralizer(DAG: g.Graph):
 
 
 # takes a DAG  and finds the triangulated graph
-def triangulation(moral: g.Graph):
+def findJunctionGraph(moral: g.Graph):
+    # I may modify the algorithm in the future trying different permutation of eliminationOrder until it finds the one that adds the less fill-ins
+    cliques = []
+    # FIRST we triangulate the graph
+
+    # makes copies of the graph
     triangulatedGraph = moral.copy()
     eliminationGraph = moral.copy()
 
+    # finds an elimination order
     eliminationOrder = moral.vertices
 
     for i in eliminationOrder:
@@ -41,8 +47,32 @@ def triangulation(moral: g.Graph):
                 triangulatedGraph.addBidirectionalEdge(family[j], family[k])
                 eliminationGraph.addBidirectionalEdge(family[j], family[k])
 
-        #eliminate the node
-        eliminationGraph.eliminateVertexAndConnections(i)
+        # finds cliques
+        clique = set()
+        clique.add(i)
+        connectedNodes = eliminationGraph.adjlist.get(i)
+        for j in connectedNodes:
+            clique.add(j)
+        cliques.append(clique)
 
-    eliminationGraph.display_AdjList()
+        # eliminate the node
+        eliminationGraph.eliminateVertexAndConnections(i)
+    # now the graph is triangulated
     triangulatedGraph.display_AdjList()
+
+    return cliques
+
+
+# takes a list of cliques removes the non maximal cliques
+def minimizeCliques(cliques: list):
+    uselessCliques = []
+    for i in range(len(cliques)):
+        for j in range(len(cliques)):
+            if i != j and cliques[j].issubset(cliques[i]):
+                uselessCliques.append(cliques[j])
+
+    for i in uselessCliques:
+        if cliques.__contains__(i):
+            cliques.remove(i)
+
+    return cliques

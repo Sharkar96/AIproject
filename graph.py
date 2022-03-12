@@ -51,7 +51,7 @@ class Graph:
             if self.adjlist[i].__contains__(vertex):
                 self.adjlist[i].remove(vertex)
 
-    # given a vertex finds its parents and return them as list.
+    # given a vertex finds its parents and return them as list. It's used by the moralize function
     def findParents(self, vertex: str):
         parents = []
         for i in self.adjlist:
@@ -59,3 +59,5 @@ class Graph:
                 if j == vertex:
                     parents.append(i)
         return parents
+
+    #
