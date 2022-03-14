@@ -92,30 +92,6 @@ class UnionFind:
         print(components)
 
 
-def MSTKruskal(graph):
-    uf = UnionFind()
-    A = np.zeros(np.shape(graph.graph))
-    for i in range(graph.nNodes):
-        uf.makeSet(graph.vertices[i])
-
-    # these two represents the indices of the non zero elements
-    [i, j] = np.nonzero(graph.graph)
-
-    weight = np.array(graph.graph)[i, j]
-    # these are the indices that would sort the weight
-    sortedWeightIndices = np.argsort(weight)
-
-    if len(weight) > 0:
-        for k in range(len(weight)):
-            # these two represent indices of the minimum non-zero weight in the graph.graph
-            minIndicesX = i[sortedWeightIndices[k]]
-            minIndicesY = j[sortedWeightIndices[k]]
-
-            if uf.findSet(graph.vertices[minIndicesX]) != uf.findSet(graph.vertices[minIndicesY]):
-                A[minIndicesX, minIndicesY] = graph.graph[minIndicesX, minIndicesY]
-                uf.union(graph.vertices[minIndicesX], graph.vertices[minIndicesY])
-
-
 class GraphForKruskal:
     def __init__(self, cliques: list):
         self.adjacencyMatrix = self.constructMatrix(cliques)
@@ -131,3 +107,31 @@ class GraphForKruskal:
 
     def printMatrix(self):
         print(self.adjacencyMatrix)
+
+
+def MSTKruskal(graph: GraphForKruskal):
+    uf = UnionFind()
+    A = np.zeros(np.shape(graph.adjacencyMatrix))
+    for i in range(len(graph.vertices)):
+        uf.makeSet(graph.vertices[i])
+
+    # these two represents the indices of the non zero elements
+    [i, j] = np.nonzero(graph.adjacencyMatrix)
+
+    weight = np.array(graph.adjacencyMatrix)[i, j]
+    # these are the indices that would sort the weight
+    sortedWeightIndices = np.argsort(weight)[::-1]
+
+    if len(weight) > 0:
+        for k in range(len(weight)):
+            # these two represent indices of the minimum non-zero weight in the graph.graph
+            minIndicesX = i[sortedWeightIndices[k]]
+            minIndicesY = j[sortedWeightIndices[k]]
+
+            if uf.findSet(graph.vertices[minIndicesX]) != uf.findSet(graph.vertices[minIndicesY]):
+                A[minIndicesX, minIndicesY] = graph.adjacencyMatrix[minIndicesX, minIndicesY]
+                uf.union(graph.vertices[minIndicesX], graph.vertices[minIndicesY])
+
+    # makes the tree a graph (A represents a directed graph, makes it undirected)
+    A = A + A.transpose()
+    return A

@@ -26,11 +26,29 @@ def constructVertices(nVertices):
 class Graph:
     def __init__(self, nNodes: int):
         self.adjlist = defaultdict(list)  # defaultdict creates an empty list as default value
-        self.nodes = nNodes
+        self.nNodes = nNodes
         self.vertices = constructVertices(nNodes)
 
     def copy(self):
         return copy.deepcopy(self)
+
+    @classmethod
+    def fromAdjacencyMatrix(cls, vertices, adjacencyMatrix):
+        graph = Graph(len(vertices))
+
+        for i in range(len(vertices)):
+            setToList = list(vertices[i])
+            setToList.sort()
+            stringifiedVertex = ""
+            for j in setToList:
+                stringifiedVertex += j
+            graph.vertices[i] = stringifiedVertex
+
+        for i in range(graph.nNodes):
+            for j in range(graph.nNodes):
+                if adjacencyMatrix[i, j] > 0:
+                    graph.addBidirectionalEdge(graph.vertices[i], graph.vertices[j])
+        return graph
 
     def addEdge(self, src: str, dst: str):
         self.adjlist[src].append(dst)
