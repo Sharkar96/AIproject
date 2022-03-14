@@ -23,6 +23,22 @@ def mainLoop():
             g.addEdge(splitString[0], splitString[1])
 
 
+# example graph figure 4.11
+def graphExample411():
+    g = graph.Graph(11)
+    g.addEdge('a', 'e')
+    g.addEdge('b', 'e')
+    g.addEdge('b', 'f')
+    g.addEdge('c', 'g')
+    g.addEdge('c', 'f')
+    g.addEdge('d', 'g')
+    g.addEdge('e', 'h')
+    g.addEdge('f', 'i')
+    g.addEdge('f', 'j')
+    g.addEdge('g', 'k')
+    return g
+
+
 # example graph figure 4.12
 def graphExample412():
     g = graph.Graph(8)
@@ -67,10 +83,13 @@ def graphExample415():
 
 def main():
     keyPressed = input(
-        "insert figure number to use a premade tree (notation: 4.11 -> 411)\n available eaxmples: 412, 415, 417 \n or press '0' to go in free insert mode: ")
+        "insert figure number to use a premade tree (notation: 4.11 -> 411)\n available examples: 411, 412, 415, 417 \n or press '0' to go in free insert mode: ")
 
     if keyPressed == '0':
         mainLoop()
+    elif keyPressed == '411':
+        g = graphExample411()
+        t.junctionTreeFinder(g)
     elif keyPressed == '412':
         g = graphExample412()
         t.junctionTreeFinder(g)
