@@ -1,6 +1,7 @@
 import graph as g
 import random
 import MSTkruskal as a
+import junctionTree as jt
 
 
 # get a DAG and returned it's moralized counterpart
@@ -123,7 +124,7 @@ def junctionTreeFinder(graph: g.Graph):
     print(cliques)
 
     print("let's construct a graph to perform the MST")
-    MSTgraph = a.GraphForKruskal(cliques)
+    MSTgraph = jt.JunctionTree(cliques)
     print("this is the adjacency matrix of the junction graph")
     MSTgraph.printMatrix()
 
@@ -135,5 +136,10 @@ def junctionTreeFinder(graph: g.Graph):
 
     junctionTree = g.Graph.fromAdjacencyMatrix(vertices=cliques, adjacencyMatrix=MST)
 
-    print("this is the Junction Tree")
+    print("this is the Junction Tree displayed as adjacency list")
     junctionTree.display_AdjList()
+
+    print("this is the Junction Tree displayed as adjacency matrix with separators")
+    junctionTree = MSTgraph
+    junctionTree.recalculateMatrix(MST)
+    junctionTree.displayMatrixWithSeparator()

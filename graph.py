@@ -77,5 +77,4 @@ class Graph:
                 if j == vertex:
                     parents.append(i)
         return parents
-
     #

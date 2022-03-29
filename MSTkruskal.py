@@ -1,5 +1,5 @@
 import numpy as np
-
+import junctionTree as jt
 
 class Node:
     def __init__(self, head, succ, element):
@@ -91,25 +91,7 @@ class UnionFind:
             components += "{" + self.collection[i].print() + "}"
         print(components)
 
-
-class GraphForKruskal:
-    def __init__(self, cliques: list):
-        self.adjacencyMatrix = self.constructMatrix(cliques)
-        self.vertices = cliques
-
-    def constructMatrix(self, cliques: list):
-        matrix = np.zeros((len(cliques), len(cliques)))
-        for i in cliques:
-            for j in cliques:
-                if i != j:
-                    matrix[cliques.index(i), cliques.index(j)] = len(i.intersection(j))
-        return matrix
-
-    def printMatrix(self):
-        print(self.adjacencyMatrix)
-
-
-def MSTKruskal(graph: GraphForKruskal):
+def MSTKruskal(graph: jt.JunctionTree):
     uf = UnionFind()
     A = np.zeros(np.shape(graph.adjacencyMatrix))
     for i in range(len(graph.vertices)):
