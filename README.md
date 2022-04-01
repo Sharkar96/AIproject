@@ -1,6 +1,6 @@
 # AIproject
 Descrizione dei file sorgente:
-Il progetto comprende 4 file sorgenti:
+Il progetto comprende 5 file sorgenti:
 
 -**main.py:** è il file da cui parte l'esecuzione, sono presenti alcuni metodi per preimpostare dei grafi ripresi dalla sezione 4.5 dell'articolo Jensen1997 (fra cui il 4.18); è inoltre presente un metodo che chiede se impostare un grafo a partire da uno di questi metodi o definirne uno in autonomia.
 
