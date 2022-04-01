@@ -10,6 +10,8 @@ Il progetto comprende 4 file sorgenti:
 
 -**MSTkruskal.py:** contiene essenzialmente l'algoritmo di Kruskal per gli MST insieme alle classi per la gestione della struttura dati union-find.
 
+-**junctionTree.py:** contiene la classe omonima per la rappresentazione di un junction tree con tanto di classe separatore, rappresenta il junction tree come matrice di adiacenza in cui ogni elemento contiene la label del separatore fra i due nodi.
+
 ## Ottenere i risultati del test
 
 Per la riproducibilità dei risultati premere il pulsante di esecuzione e seguire le istruzioni a schermo, in particolare:
