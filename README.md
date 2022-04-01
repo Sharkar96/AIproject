@@ -24,6 +24,17 @@ Per la riproducibilità dei risultati premere il pulsante di esecuzione e seguir
    - viene avviata una modalità in cui viene continuamente richesto di inserire un arco oppure visualizzare il junction tree del grafo inserito.
    - scrivendo a,b si inserisce un arco direzionato che parte dal nodo *a* ed arriva al nodo *b*, questi due nodi verranno inseriti automaticamente.
    - una volta inseriti tutti gli archi inserire il simbolo $ per visualizzare il junction tree.
+ 
+ L'esercizio richiede due dag: il primo si ottiene scegliendo l'esempio 417 secondo la procedura al punto 1. Il secondo è a piacere e bisogna inserire i seguenti archi secondo la procedura 2.:
+   - 6
+   - a,b
+   - a,d
+   - d,c
+   - b,c
+   - d,f
+   - b,e
+   - e,f
+   - $
 
 In ogni caso verranno visualizzati i seguenti risultati:
 1. il grafo originale inserito in formato lista di adiacenza.
