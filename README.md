@@ -26,12 +26,13 @@ Per la riproducibilità dei risultati premere il pulsante di esecuzione e seguir
    - una volta inseriti tutti gli archi inserire il simbolo $ per visualizzare il junction tree.
 
 In ogni caso verranno visualizzati i seguenti risultati:
-1. il grafo originale inserito in formato lista di adiacenza
-2. il grafo moralizzato in formato lista di adiacenza
-3. l'ordine di eliminazione dei nodi utilizzato per la triangolazione
-4. il grafo triangolato in formato lista di adiacenza
-5. le cricche trovate
-6. le cricche massimali trovate
-7. il grafo delle cricche (junction graph) in formato matrice di adiacenza
-8. il corrispondente Maximum spanning tree in formato matrice di adiacenza
-9. e infine l'MST (junction tree) in formato lista di adiacenza per una maggiore leggibilità
+1. il grafo originale inserito in formato lista di adiacenza.
+2. il grafo moralizzato in formato lista di adiacenza.
+3. l'ordine di eliminazione dei nodi utilizzato per la triangolazione.
+4. il grafo triangolato in formato lista di adiacenza.
+5. le cricche trovate.
+6. le cricche massimali trovate.
+7. il grafo delle cricche (junction graph) in formato matrice di adiacenza.
+8. il corrispondente Maximum spanning tree in formato matrice di adiacenza.
+9. e infine l'MST (junction tree) in formato lista di adiacenza per una maggiore leggibilità.
+10. Ripropone l'MST (junction tree in formato matrice di adiacenza nel quale ogni elemento rappresenta il corrispettivo separatore.
