@@ -46,4 +46,4 @@ In ogni caso verranno visualizzati i seguenti risultati:
 7. il grafo delle cricche (junction graph) in formato matrice di adiacenza.
 8. il corrispondente Maximum spanning tree in formato matrice di adiacenza.
 9. e infine l'MST (junction tree) in formato lista di adiacenza per una maggiore leggibilità.
-10. Ripropone l'MST (junction tree in formato matrice di adiacenza nel quale ogni elemento rappresenta il corrispettivo separatore.
+10. Ripropone l'MST (junction tree in formato matrice di adiacenza nel quale ogni elemento rappresenta il corrispettivo separatore).
